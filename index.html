@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			fetch('https://rickandmortyapi.com/api/episode')
+				.then((r) => r.json())
+				.then((d) => {
+					const url = d.results[0].characters[0];
+					console.log(d.results[0].characters[0]);
+					fetch(url)
+						.then((rs) => rs.json())
+						.then((dt) => {
+							document.write(dt.name + '<br>');
+						});
+				});
+		</script>
+	</body>
+</html>
